@@ -17,6 +17,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
+        donate: resolve(__dirname, 'src/donate.html'),
+        updates: resolve(__dirname, 'src/updates.html'),
+        french: resolve(__dirname, 'src/fr.html'),
+        about: resolve(__dirname, 'src/about.html'),
         projects: resolve(__dirname, 'src/projects.html'),
         team: resolve(__dirname, 'src/team.html'),
         contact: resolve(__dirname, 'src/contact.html'),
