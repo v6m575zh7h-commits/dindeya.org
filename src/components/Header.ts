@@ -24,14 +24,22 @@ export class Header {
       classes: ['logo'],
       attributes: { href: `${base}index.html` },
       innerHTML: `
-        <img src="${base}assets/images/logo.png" alt="Dindeya Logo" class="logo-icon" />
+        <img src="${base}assets/images/dindeya-logo.jpeg" alt="Dindeya Logo" class="logo-icon" />
         <span>Dindeya</span>
       `,
     });
 
     // Navigation Links
     const navLinks = createElement('ul', { classes: ['nav-links'] });
-    const navItems = SITE_CONFIG.navigation.map((link) => {
+    const french = document.documentElement.lang === 'fr';
+    const navigation = french ? [
+      {label:'Notre histoire',href:'#histoire',primary:false},
+      {label:'Projets',href:'#projets',primary:false},
+      {label:'Réunion',href:'#reunion',primary:false},
+      {label:'Contact',href:'#contact',primary:false},
+      {label:'Faire un don',href:'#don',primary:true},
+    ] : SITE_CONFIG.navigation;
+    const navItems = navigation.map((link) => {
       const li = createElement('li');
       const isActive = this.isActive(link.href);
       const classes = link.primary ? ['btn', 'btn-primary', 'btn-sm'] : [];
@@ -39,7 +47,7 @@ export class Header {
 
       const a = createElement('a', {
         classes,
-        attributes: { href: link.href },
+        attributes: { href: link.href, ...(isActive ? { 'aria-current': 'page' } : {}) },
         textContent: link.label,
       });
 
@@ -64,6 +72,17 @@ export class Header {
       hamburger.setAttribute('aria-expanded', String(isOpen));
     });
 
+    hamburger.setAttribute('aria-controls', 'site-navigation');
+    navLinks.id = 'site-navigation';
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navLinks.classList.contains('is-open')) {
+        navLinks.classList.remove('is-open');
+        hamburger.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.focus();
+      }
+    });
+
     // Close menu when a link is clicked
     navLinks.addEventListener('click', (e) => {
       if ((e.target as HTMLElement).tagName === 'A') {
@@ -74,6 +93,10 @@ export class Header {
     });
 
     appendChildren(navLinks, ...navItems);
+    const languageItem = createElement('li');
+    const languageLink = createElement('a', {attributes:{href:french ? 'index.html' : 'fr.html',lang:french ? 'en' : 'fr',hreflang:french ? 'en' : 'fr'},textContent:french ? 'English' : 'Français'});
+    languageItem.appendChild(languageLink);
+    navLinks.appendChild(languageItem);
     appendChildren(navContainer, logo, navLinks, hamburger);
     appendChildren(nav, navContainer);
     appendChildren(header, nav);
@@ -83,7 +106,7 @@ export class Header {
   }
 
   private isActive(href: string): boolean {
-    return this.currentPath === href || this.currentPath.endsWith(href.replace('/', '.html'));
+    return this.currentPath.endsWith('/' + href);
   }
 
   setActive(href: string): void {

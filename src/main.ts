@@ -8,6 +8,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { SITE_CONFIG } from '@/config/site.config';
 import '../assets/css/style.css';
+import '../assets/css/redesign.css';
 
 async function initializeApp(): Promise<void> {
   console.log('🚀 Initializing Dindeya PWA...');
@@ -36,6 +37,10 @@ async function initializeApp(): Promise<void> {
   }
 
   body.appendChild(footerEl);
+  if (document.documentElement.lang === 'fr') {
+    footerEl.innerHTML = '<div class="container"><h3>Dindeya Development &amp; Support Organization</h3><p>Communauté. Culture. Progrès.</p><a href="mailto:info@dindeya.org">info@dindeya.org</a><p>© Dindeya · Tous droits réservés.</p></div>';
+    document.querySelector('.hamburger')?.setAttribute('aria-label', 'Ouvrir ou fermer le menu');
+  }
 
   // Set up page-specific initialization
   setupPageSpecific();
@@ -125,32 +130,6 @@ function setupGlobalListeners(): void {
     }
   });
 
-  // Update navigation active state on scroll
-  window.addEventListener('scroll', () => {
-    updateNavActiveState();
-  });
-}
-
-function updateNavActiveState(): void {
-  const sections = document.querySelectorAll('section[id]');
-  let currentSection = '';
-
-  sections.forEach((section) => {
-    const sectionTop = (section as HTMLElement).offsetTop;
-    if (window.scrollY >= sectionTop - 200) {
-      currentSection = section.id;
-    }
-  });
-
-  if (currentSection) {
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach((link) => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentSection}`) {
-        link.classList.add('active');
-      }
-    });
-  }
 }
 
 // Initialize app when DOM is ready
