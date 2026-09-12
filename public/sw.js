@@ -2,7 +2,7 @@
    SERVICE WORKER – Dindeya Development & Support Organization
    ============================================================ */
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3-redesign';
 const CACHE_NAME = `dindeya-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `dindeya-runtime-${CACHE_VERSION}`;
 
@@ -14,6 +14,10 @@ const STATIC_ASSETS = [
   './team.html',
   './contact.html',
   './membership.html',
+  './about.html',
+  './donate.html',
+  './updates.html',
+  './fr.html',
   './manifest.json',
 ];
 
@@ -47,6 +51,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
 
   if (url.origin !== location.origin) return;
+  if (request.headers.has('range') || url.pathname.startsWith('/assets/video/')) return;
 
   if (request.mode === 'navigate') {
     event.respondWith(
