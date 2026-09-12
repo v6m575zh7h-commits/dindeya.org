@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
   contactEmail: 'info@dindeya.org',
   secondaryEmail: 'info@dindeya.org',
   phone: '862-300-7004',
-  location: 'New York, NY, United States of America',
+  location: 'Newark, NJ, United States of America',
   
   // Social Media
   social: {
@@ -35,11 +35,12 @@ export const SITE_CONFIG = {
   
   // Navigation
   navigation: [
-    { label: 'Home', href: 'index.html' },
+    { label: 'Our Story', href: 'about.html' },
     { label: 'Projects', href: 'projects.html' },
     { label: 'Our Team', href: 'team.html' },
     { label: 'Contact', href: 'contact.html' },
-    { label: 'Join Us', href: 'membership.html', primary: true },
+    { label: 'Updates', href: 'updates.html' },
+    { label: 'Donate', href: 'donate.html', primary: true },
   ],
   
   // Hero Section
@@ -98,7 +99,7 @@ export const SITE_CONFIG = {
   
   // Impact Metrics
   metrics: [
-    { label: 'Raised Since 2017', value: '$50,000+' },
+    { label: 'Raised Since 2017', value: '$100,000+'  },
     { label: 'Projects Completed', value: '4' },
     { label: 'Community Members Reached', value: '5,000+' },
     { label: 'Years of Impact', value: '18' },
@@ -109,9 +110,9 @@ export const SITE_CONFIG = {
     hospital: {
       title: '2025 Hospital Reconstruction Campaign',
       description: 'Rebuilding the foundation of rural healthcare in Guinea',
-      goal: 100000,
-      raised: 37000,
-      impact: 'Reconstructing a 50-bed hospital serving 50,000+ people',
+      goal: null,
+      raised: 45643.13,
+      impact: 'Rebuilding the hospital in Dindeya; construction is ongoing',
       stories: [
         {
           title: 'Saving Lives in Rural Guinea',
@@ -162,9 +163,9 @@ export const SITE_CONFIG = {
   footer: {
     copyright: `© 2006-${new Date().getFullYear()} Dindeya Development & Support Organization. All rights reserved.`,
     quickLinks: [
-      { label: 'Privacy Policy', href: '/privacy' },
-      { label: 'Terms of Service', href: '/terms' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Our Story', href: 'about.html' },
+      { label: 'Projects', href: 'projects.html' },
+      { label: 'Contact', href: 'contact.html' },
     ],
   },
 };
