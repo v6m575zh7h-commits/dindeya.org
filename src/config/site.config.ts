@@ -5,10 +5,10 @@
 
 export const SITE_CONFIG = {
   // Basic Information
-  organization: 'Dindeya Development & Support Organization',
+  organization: 'Dindeya Development & Support Org. Inc.',
   tagline: 'Community. Culture. Progress.',
   subtitle: 'Building Healthcare, Strengthening Communities',
-  description: 'Dindeya Development & Support Organization - Community. Culture. Progress. Building healthcare infrastructure and community development in rural Guinea.',
+  description: 'Dindeya Development & Support Org. Inc. - Community. Culture. Progress. Building healthcare infrastructure and community development in rural Guinea.',
   
   // URLs & Domain
   siteUrl: 'https://dindeya.org',
@@ -47,7 +47,7 @@ export const SITE_CONFIG = {
   hero: {
     headline: 'Community. Culture. Progress.',
     subheadline: 'Building Healthcare, Strengthening Communities',
-    description: 'Dindeya Development & Support Organization is committed to scaling impact in rural Guinea through infrastructure development, healthcare initiatives, and diaspora-driven community support.',
+    description: 'Dindeya Development & Support Org. Inc. is committed to scaling impact in rural Guinea through infrastructure development, healthcare initiatives, and diaspora-driven community support.',
     ctas: [
       { label: 'Explore Our Work', href: '/projects', variant: 'secondary' },
       { label: 'Support Our Mission', href: '/membership', variant: 'primary' },
@@ -161,7 +161,7 @@ export const SITE_CONFIG = {
   
   // Footer
   footer: {
-    copyright: `© 2006-${new Date().getFullYear()} Dindeya Development & Support Organization. All rights reserved.`,
+    copyright: `© 2006-${new Date().getFullYear()} Dindeya Development & Support Org. Inc. All rights reserved.`,
     quickLinks: [
       { label: 'Our Story', href: 'about.html' },
       { label: 'Projects', href: 'projects.html' },
