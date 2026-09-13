@@ -25,7 +25,7 @@ export class Header {
       attributes: { href: `${base}index.html` },
       innerHTML: `
         <img src="${base}assets/images/dindeya-logo.jpeg" alt="Dindeya Logo" class="logo-icon" />
-        <span>Dindeya</span>
+        <span class="brand-copy"><span class="brand-name">Dindeya</span><small class="brand-subtitle">Development &amp; Support Org. Inc.</small></span>
       `,
     });
 
