@@ -38,7 +38,7 @@ async function initializeApp(): Promise<void> {
 
   body.appendChild(footerEl);
   if (document.documentElement.lang === 'fr') {
-    footerEl.innerHTML = '<div class="container"><h3>Dindeya Development &amp; Support Organization</h3><p>Communauté. Culture. Progrès.</p><a href="mailto:info@dindeya.org">info@dindeya.org</a><p>© Dindeya · Tous droits réservés.</p></div>';
+    footerEl.innerHTML = '<div class="container"><h3>Dindeya Development &amp; Support Org. Inc.</h3><p>Communauté. Culture. Progrès.</p><a href="mailto:info@dindeya.org">info@dindeya.org</a><p>© Dindeya · Tous droits réservés.</p></div>';
     document.querySelector('.hamburger')?.setAttribute('aria-label', 'Ouvrir ou fermer le menu');
   }
 
