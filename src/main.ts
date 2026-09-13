@@ -138,3 +138,9 @@ if (document.readyState === 'loading') {
 } else {
   initializeApp();
 }
+
+// Load optional audience measurement after the shared page components.
+const analyticsScript = document.createElement('script');
+analyticsScript.src = '/analytics.js';
+analyticsScript.defer = true;
+document.head.appendChild(analyticsScript);
